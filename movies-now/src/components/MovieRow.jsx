@@ -5,26 +5,19 @@ import { Link } from 'react-router-dom';
 
 class MovieRow extends Component
 {
-    constructor(props)
-    {
-        super(props);
-        this.state = {
-            movies: [],      
-        };
-    }
+    movies = [];
+
     componentDidMount() {
         axios.get("http://localhost:5000/movie")
             .then(response => {
                 if (response.data.length > 0)
                 {
-                    this.setState({
-                        movies:response.data.map(movie=>movie),
-                    })
+                    this.movies = response.data.map(movie => movie);
                 }
-        })
+            })
     }
-    render() {
-        
+
+    render() { 
         return (
             <div className="movRow">
                 {this.state.movies.map(movie => 

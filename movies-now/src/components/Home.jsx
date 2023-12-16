@@ -15,13 +15,13 @@ class Home extends Component{
                 <h1>New Releases</h1>
                 <div class="movies">
                     {this.newMovies.map((movie) => {
-                        <MovieBox />
+                        <MovieBox movie={movie} />
                      })}
                 </div>
                 <h1>Upcoming Movies</h1>
                 <div class="movies">
                     {this.upComingMovies.map((movie) => {
-                        <MovieBox />
+                        <MovieBox  movie={movie} />
                     })}
                 </div>
                 <Footer/>

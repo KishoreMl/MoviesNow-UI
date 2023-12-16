@@ -1,45 +1,14 @@
 export function checkDay(day, month) {
-        var mon = {
-            1: 31,
-            2: 28,
-            3: 31,
-            4: 30,
-            5: 31,
-            6: 30,
-            7: 31,
-            8: 31,
-            9: 30,
-            10: 31,
-            11: 30,
-            12: 31
-        }
-        if (day > mon[month])
-        {
-            if (month === 12)
-                return 1;
-            else
-                return 1;
-        }
+        const months = {1: 31,2: 28, 3: 31,4: 30, 5: 31, 6: 30, 7: 31,8: 31, 9: 30, 10: 31, 11: 30, 12: 31 }
+        if (day > months[month])
+            return 1;
         else
             return day;
-}
+    }
     
 export function checkMonth(day, month) {
-        var mon = {
-            1: 31,
-            2: 28,
-            3: 31,
-            4: 30,
-            5: 31,
-            6: 30,
-            7: 31,
-            8: 31,
-            9: 30,
-            10: 31,
-            11: 30,
-            12: 31
-        }
-        if (day >= mon[month])
+        const months = {1: 31,2: 28,3: 31, 4: 30,5: 31,6: 30,7: 31,8: 31,9: 30,10: 31, 11: 30, 12: 31}
+        if (day >= months[month])
         {
             if (month === 12)
                 return 1;
@@ -51,7 +20,7 @@ export function checkMonth(day, month) {
 }
     
 export function assignMonth(month) {
-       var  mon = {
+       const months = {
             1: "JAN",
             2: "FEB",
             3: "MAR",
@@ -65,5 +34,5 @@ export function assignMonth(month) {
             11: "NOV",
             12: "DEC"
         }
-        return mon[month]
+        return months[month]
     }

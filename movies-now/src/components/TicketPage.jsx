@@ -78,13 +78,11 @@ class TicketPage extends Component{
     }
     updateSeats()
     {
-       
         axios.get("http://localhost:5000/seat/"+this.state.ticket.theatrename)
             .then(response => {
                 this.setState({
                 theatreSeats:response.data.seats
                 })
-
                     this.state.ticket.seats.map(seat => {
                         var seatss = this.state.theatreSeats;
                         var seatno = seat.split("");
@@ -101,14 +99,12 @@ class TicketPage extends Component{
                         const rows ="ABCDEFGHIJKLMNO";
                         var r = rows.indexOf(row);
                         seatss[r][no] = "B";
-                        console.log(seatss);
                         this.setState(prevState => ({
                             seats: {
                                 ...prevState.seats,
                                 theatreSeats: seatss,
                             }
-                        }))
-                        
+                        }))   
                     })
                 
                 axios.post("http://localhost:5000/seat/update/"+this.state.theatrename,this.state.seats);

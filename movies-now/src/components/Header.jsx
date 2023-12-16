@@ -7,7 +7,7 @@ function Header()
         <div className="header">
             <img src={logo} alt=""/>
             <h1>MoviesNow</h1>
-        <Search></Search>
+            <Search />
         </div>
     );
 }
