@@ -2,11 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import MovieBox from "./MovieBox";
 import { Link } from 'react-router-dom';
-//import img1 from './Images/Spiderman.jpg';
-//import img2 from './Images/83.jpg';
-//import img3 from './Images/Valimai.jpg';
-//import img5 from './Images/RRR.jpg';
-
 
 class MovieRow extends Component
 {
@@ -14,8 +9,7 @@ class MovieRow extends Component
     {
         super(props);
         this.state = {
-            movies: [], 
-            
+            movies: [],      
         };
     }
     componentDidMount() {
@@ -36,8 +30,7 @@ class MovieRow extends Component
                 {this.state.movies.map(movie => 
                     <Link to={"/movie/" + movie.moviename}>
                         <MovieBox key={movie.moviename} Movie={movie} />
-                    </Link>
-                    
+                    </Link>  
                 )}     
             </div>
         );

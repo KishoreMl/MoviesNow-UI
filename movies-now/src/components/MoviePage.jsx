@@ -5,9 +5,8 @@ import Footer from './Footer';
 class MoviePage extends Component{
 
     render() {
-        return (
-            
-            <div >
+        return ( 
+            <div>
                 <Movie movie={this.props.match.params.id}/>
                 <MovieDetails movie={this.props.match.params.id} />
                 <Footer/>

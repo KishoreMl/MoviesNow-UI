@@ -1,22 +1,29 @@
 import React, { Component } from 'react';
-import MovieRow from './MovieRow';
-import MovieRow2 from './MovieRow2';
 import Footer from './Footer';
 import NavBar from './NavBar';
+import MovieBox from "./MovieBox";
 
 class Home extends Component{
-
-   
-
+    newMovies = [];
+    upComingMovies = [];
+    
     render()
-    {
+    { 
         return (
             <div >
                 <NavBar />
                 <h1>New Releases</h1>
-                <MovieRow/>
+                <div class="movies">
+                    {this.newMovies.map((movie) => {
+                        <MovieBox />
+                     })}
+                </div>
                 <h1>Upcoming Movies</h1>
-                <MovieRow2/>
+                <div class="movies">
+                    {this.upComingMovies.map((movie) => {
+                        <MovieBox />
+                    })}
+                </div>
                 <Footer/>
             </div>
         );

@@ -31,9 +31,7 @@ class TheatreHallPage extends Component{
         this.booked = this.booked.bind(this);
     }
     componentDidMount() {
-        
         const res = async () => {
-            
             try {
                 const response = await axios.get("http://localhost:5000/ticket/" + this.props.match.params.ticketId);
                 this.setState(prevState => ({
@@ -70,7 +68,6 @@ class TheatreHallPage extends Component{
     booked()
     {
         axios.post("http://localhost:5000/ticket/update/" + this.state.ticket.ticketId, this.state.ticket);
-        console.log(this.state.ticket);
     }
     render()
     {
@@ -82,11 +79,12 @@ class TheatreHallPage extends Component{
                     time={this.state.ticket.time}
                     ticketId={this.state.ticket.ticketId}
                     print={this.state.ticket.print}
-                    onBook={this.booked}/>
-                
+                    onBook={this.booked}
+                />
                 <TheatreHall
                     theatrename={this.state.ticket.theatrename}
-                    onSelectedSeats={this.selectedSeat} />
+                    onSelectedSeats={this.selectedSeat}
+                />
             </div>
         );
     }

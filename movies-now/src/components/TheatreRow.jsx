@@ -41,9 +41,8 @@ class TheatreRow extends Component{
                 }))
             })
             .catch(function (err) {
-                if (err)
                     console.log(err);
-        })
+                })
         setTimeout(() => {
             axios.post("http://localhost:5000/ticket/add", this.state.ticket);
         }, 1000);
@@ -53,16 +52,12 @@ class TheatreRow extends Component{
        
         return (
             <div className="theatreRow">
-        
                 <h4>{this.props.Theatre.theatrename},{this.props.Theatre.location}</h4>
-                {
-                    this.props.Theatre.timeslots.map(time =>
-                        <Link to={'/theatrehall/'+this.state.ticket.ticketId+'/'+time}>
-                            <button name="theatre" key={time}  >{time}</button>
-                        </Link>
-                        )
-                }
-                         
+                {this.props.Theatre.timeslots.map(time =>
+                    <Link to={'/theatrehall/'+this.state.ticket.ticketId+'/'+time}>
+                        <button name="theatre" key={time} >{time}</button>
+                    </Link>
+                )}           
             </div>
         );
     }

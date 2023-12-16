@@ -117,16 +117,14 @@ class TicketPage extends Component{
                 if (err)
                     console.log(err);
             })
-            
             axios.delete("http://localhost:5000/ticket");
     }
     render()
     {
-        
         return (
             <div >
                 <NavBar />
-                <h2>Your Booking has Confirmed</h2>
+                <h2>Your Booking has been Confirmed</h2>
                 <center>
                     <Ticket ticketId={this.props.match.params.ticketId} />
                 </center>

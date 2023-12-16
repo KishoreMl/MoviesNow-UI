@@ -50,7 +50,6 @@ class Otp extends Component{
             	    <div class="log">
                         <h2>Enter your OTP</h2>
                         <form onSubmit={this.onSubmit}>
-
                             <input type="password"
                                     placeholder="6-Digit OTP"
                                     onChange={this.onChangeOTP}
@@ -58,7 +57,7 @@ class Otp extends Component{
                             
                             <button type="submit" value="submit">
                                 Verify OTP
-                            </button><br />
+                            </button><br/>
                             
                             <button type="submit"
                                 class="resend"

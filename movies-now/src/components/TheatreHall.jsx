@@ -5,7 +5,8 @@ class TheatreHall extends Component {
 
     render() {
         return (
-            <Seats onseatselect={this.props.onSelectedSeats}
+            <Seats
+                onseatselect={this.props.onSelectedSeats}  
                 theatrename={this.props.theatrename}>
             </Seats>
         );

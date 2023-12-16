@@ -5,56 +5,18 @@ import img1 from '../Images/booked.png';
 
 class Ticket extends Component
 {
-    constructor(props)
-    {
-        super(props);
-        this.state = {
-            ticket: {
-                ticketId:this.props.ticketId,
-                moviename: "",
-                theatrename: "",
-                location: "",
-                print: "",
-                language:"",
-                time:"",
-                date: "",  
-                seats: [],
-                totaltickets: 0,
-                concessionfee: 0,
-                subtotal: 0,
-                total:0,
-                booked:true,
-            }
-        }
-    }
+    ticket = {};  
     componentDidMount()
     {
         const res = async () => {
             const response = await axios.get("http://localhost:5000/ticket/" + this.props.ticketId);
-            this.setState(prevState => ({
-                    ticket: {
-                        ...prevState.ticket,
-                        moviename : response.data.moviename,
-                        theatrename : response.data.theatrename,
-                        location: response.data.location,
-                        print: response.data.print,
-                        language: response.data.language,
-                        date: response.data.date,
-                        time:response.data.time,
-                        seats:response.data.seats,
-                        totaltickets: response.data.totaltickets,
-                        concessionfee:response.data.concessionfee,
-                        subtotal: response.data.subtotal,
-                        total: response.data.total,
-                    }
-            }))
+            this.ticket = response.data;
+
             axios.get("http://localhost:5000/movie/" + this.state.ticket.moviename)
                 .then(response => {
-                    this.setState({
-                    image:response.data.image
+                  this.ticket={...this.ticket, image:response.data.image}
                 })
-            })
-        }
+         }
         res();
     }
     render() {
@@ -63,21 +25,18 @@ class Ticket extends Component
                 <div className="ticket-img">
                     <img src={img}  alt=""/>
                 </div>
-        
-                <h2> {this.state.ticket.moviename} ({this.state.ticket.print})</h2>
+                <h2> {this.ticket.moviename} ({this.ticket.print})</h2>
                 <p><b>LANGUAGE:</b> {this.state.ticket.language} </p>
-                <p> {this.state.ticket.theatrename} , {this.state.ticket.location}</p>
-                <p>
-                    <b>SEATS: </b>
-                    {this.state.ticket.seats.map(seat => 
+                <p> {this.ticket.theatrename} , {this.ticket.location}</p>
+                <p><b>SEATS: </b>
+                    {this.ticket.seats.map(seat => 
                         <span>{seat},</span>
                     )}
                 </p>
-                <p><b>DATE:</b> {this.state.ticket.date}</p>
-                <p><b>TIME:</b> {this.state.ticket.time}</p>
-                <p><b>TOTAL PRICE:</b> Rs.{this.state.ticket.total}</p>
+                <p><b>DATE:</b> {this.ticket.date}</p>
+                <p><b>TIME:</b> {this.ticket.time}</p>
+                <p><b>TOTAL PRICE:</b> Rs.{this.ticket.total}</p>
 
-            
                 <img id="booked" src={img1} alt="" />
                 <div className="dot1"></div>
                 <div className="dot2"></div>

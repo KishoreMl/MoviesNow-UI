@@ -4,25 +4,16 @@ import TheatreRow from './TheatreRow';
 
 class TheatreGrid extends Component
 {
-    constructor(props)
-    {
-        super(props);
-        this.state = {
-            theatres: [], 
-        };
-    }
+    theatres = []
+   
     componentDidMount() {
         axios.get("http://localhost:5000/theatre")
             .then(response => {
                 if (response.data.length > 0) {
-                    this.setState({
-                        theatres: response.data.map(theatre => theatre),
-                    })
-                }
-            })
-        }
+                    theatres = response.data.map(theatre => theatre);
+                }})
+            }
 
-    
     render() {
         return (
             <div className="theatreGrid">
@@ -31,10 +22,9 @@ class TheatreGrid extends Component
                         date={this.props.date}
                         key={theatre}
                         movie={this.props.movie} />
-                )}
-                 
+                )}  
             </div>
-        );
+        )
     }
 }
 
