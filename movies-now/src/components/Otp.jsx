@@ -37,8 +37,7 @@ class Otp extends Component{
             }
             axios.post("http://localhost:5000/user/update/" + this.props.match.params.userid, user);
             window.location = '/home';
-        }
-            
+        }    
         else
             this.setState({warning:"Invalid OTP"})
     }

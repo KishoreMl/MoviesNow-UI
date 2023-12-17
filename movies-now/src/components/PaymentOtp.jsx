@@ -18,7 +18,6 @@ class PaymentOtp extends Component{
     onSubmit(e)
     {
         e.preventDefault();
-
         window.location = "/ticket/"+this.state.ticketId
     }
     render()

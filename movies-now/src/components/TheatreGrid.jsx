@@ -21,7 +21,8 @@ class TheatreGrid extends Component
                     <TheatreRow Theatre={theatre}
                         date={this.props.date}
                         key={theatre}
-                        movie={this.props.movie} />
+                        movie={this.props.movie}
+                    />
                 )}  
             </div>
         )

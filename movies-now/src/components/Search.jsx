@@ -23,21 +23,18 @@ class Search extends Component
         axios.get("http://localhost:5000/movie/"+this.state.moviename)
             .then(response => {
                 console.log("Movie data: "+response.data);   
-            if (response.data.length > 0)
-            { 
-                
-                window.location = '/movie/' + response.data.moviename;
-            }
-            else
-            {
-                
-                window.location = '/movienotfound';
-            }  
-             
+                if (response.data.length > 0)
+                { 
+                    window.location = '/movie/' + response.data.moviename;
+                }
+                else
+                {
+                    window.location = '/movienotfound';
+                }  
             })
             .catch(function (error) {
                 console.log(error);
-        })
+            })
     }
     render() {
         return (

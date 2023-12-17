@@ -66,14 +66,10 @@ class Summary extends Component{
                         <span>{seat},</span>
                     )} 
                 </p>
-                
                 <p> <b>Ticket(s): </b>{this.state.ticket.totaltickets}</p>
-                
                 <p><b>Convenience fees: </b> <span>{this.state.ticket.concessionfee}</span> </p> 
                 <hr/>
                 <br/>
-               
-
                 <p><b>Amount Payable </b> <span>Rs.{this.state.ticket.total}</span> </p> 
                 <hr/>
                 <p>By proceeding, I express my consent to complete this transaction</p>

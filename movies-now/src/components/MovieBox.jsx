@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
 
 class MovieBox extends Component
-{
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            movie: props.Movie,
-        };
-    }
-    
+{   
     render() {
         return (
             <div className="movieBox">

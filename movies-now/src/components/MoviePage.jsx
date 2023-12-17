@@ -3,7 +3,6 @@ import Movie from './Movie';
 import MovieDetails from './MovieDetails';
 import Footer from './Footer';
 
-
 class MoviePage extends Component{
     render() {
         return ( 

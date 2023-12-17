@@ -7,7 +7,7 @@ class CastBox extends Component{
             <div className="castImg">
                 <img src={this.props.cast.image} alt=""/>
                 <b><p>{this.props.cast.name}</p></b>
-                <p >{this.props.cast.role}</p>
+                <p>{this.props.cast.role}</p>
             </div>
         );
     }

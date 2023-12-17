@@ -1,35 +1,19 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import img from '../Images/Spiderman.jpg';
-import img1 from '../Images/booked.png';
+import bookedImage from '../Images/booked.png';
 
 class Ticket extends Component
 {
-    ticket = {};  
-    componentDidMount()
-    {
-        const res = async () => {
-            const response = await axios.get("http://localhost:5000/ticket/" + this.props.ticketId);
-            this.ticket = response.data;
-
-            axios.get("http://localhost:5000/movie/" + this.state.ticket.moviename)
-                .then(response => {
-                  this.ticket={...this.ticket, image:response.data.image}
-                })
-         }
-        res();
-    }
     render() {
         return (
             <div className="ticket">
                 <div className="ticket-img">
-                    <img src={img}  alt=""/>
+                    <img src=""  alt=""/>
                 </div>
-                <h2> {this.ticket.moviename} ({this.ticket.print})</h2>
-                <p><b>LANGUAGE:</b> {this.state.ticket.language} </p>
-                <p> {this.ticket.theatrename} , {this.ticket.location}</p>
+                <h2> {this.props.ticket.moviename} ({this.props.ticket.print})</h2>
+                <p><b>LANGUAGE:</b> {this.props.ticket.language} </p>
+                <p> {this.props.ticket.theatrename} , {this.props.ticket.location}</p>
                 <p><b>SEATS: </b>
-                    {this.ticket.seats.map(seat => 
+                    {this.props.ticket.seats.map(seat => 
                         <span>{seat},</span>
                     )}
                 </p>
@@ -37,7 +21,7 @@ class Ticket extends Component
                 <p><b>TIME:</b> {this.ticket.time}</p>
                 <p><b>TOTAL PRICE:</b> Rs.{this.ticket.total}</p>
 
-                <img id="booked" src={img1} alt="" />
+                <img id="booked" src={bookedImage} alt="" />
                 <div className="dot1"></div>
                 <div className="dot2"></div>
                 <div className="dot3"></div>

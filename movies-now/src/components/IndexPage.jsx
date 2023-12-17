@@ -41,16 +41,13 @@ class IndexPage extends Component{
                                 placeholder="Email"
                                 value={this.state.email}
                                 onChange={this.onChangeEmail} /><br /> 
-                            
                              <button  type="submit" value="submit">
                                     Send OTP
                             </button>
-     
                         </form> 
                     </div>
                 </center>
-            </div>
-            
+            </div>   
         );
     }
 }
