@@ -14,12 +14,10 @@ class IndexPage extends Component{
     }
     onChangeEmail(e)
     {
-        this.setState({ email: e.target.value })
-        
+        this.setState({ email: e.target.value }) 
     }
     onSubmit(e)
     {
-        console.log("email sent");
         e.preventDefault();
         const email = this.state.email;
         var otp = Math.floor(Math.random() * 999999);

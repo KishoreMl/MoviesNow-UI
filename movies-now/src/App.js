@@ -1,7 +1,7 @@
 
 import './App.css';
 import './movie.css';
-import { Route } from 'react-router-dom';
+import { Route,Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Header from './components/Header';
 import MoviePage from './components/MoviePage';
@@ -19,18 +19,21 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
-      <Route exact path="/"><IndexPage /></Route>
-      <Route path="/otp/:userid"  />
-      <Route path="/home"><Home/></Route>
-      <Route path="/movie/:id" render={(props) => <MoviePage {...props}/>}/>
-      <Route path="/movies"><Allmovies /></Route>
-      <Route path="/movienotfound"><MovieNotFound/></Route>
-      <Route path="/theaters/:id"  render={(props) => <TheatrePage {...props}/>}/>
-      <Route path="/theatrehall/:ticketId/:time" render={(props) => <TheatreHallPage {...props}/>}/>
-      <Route path="/bookingsummary/:ticketId" render={(props) => <BookingSummary {...props}/>}/>
-      <Route path="/payment/:ticketId" render={(props) => <PaymentPage {...props}/>}/>
-      <Route path="/paymentotp/:ticketId" render={(props) => <PaymentOtp {...props}/>}/>
-      <Route path="/ticket/:ticketId" render={(props) => <TicketPage {...props}/>}/>
+      <Home />
+      {/* <Routes>
+        <Route exact path="/"><IndexPage /></Route>
+        <Route path="/otp/:userid"  />
+        <Route path="/home"><Home/></Route>
+        <Route path="/movie/:id" render={(props) => <MoviePage {...props}/>}/>
+        <Route path="/movies"><Allmovies /></Route>
+        <Route path="/movienotfound"><MovieNotFound/></Route>
+        <Route path="/theaters/:id"  render={(props) => <TheatrePage {...props}/>}/>
+        <Route path="/theatrehall/:ticketId/:time" render={(props) => <TheatreHallPage {...props}/>}/>
+        <Route path="/bookingsummary/:ticketId" render={(props) => <BookingSummary {...props}/>}/>
+        <Route path="/payment/:ticketId" render={(props) => <PaymentPage {...props}/>}/>
+        <Route path="/paymentotp/:ticketId" render={(props) => <PaymentOtp {...props}/>}/>
+        <Route path="/ticket/:ticketId" render={(props) => <TicketPage {...props} />} />
+      </Routes> */}
 
     </div>
   );

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SeatRow from './SeatRow';
 import Legend from './Legend';
 import axios from 'axios';
+
 class Seats extends Component{
 
     constructor(props)

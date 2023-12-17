@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
+import { getTicket, getMovie } from "../sdk/moviesnow";
 
 class BookingSummary extends Component{
 
@@ -12,26 +14,9 @@ class BookingSummary extends Component{
 
     componentDidMount()
     {
-        axios.get("http://localhost:5000/ticket/" + this.ticketId)
-            .then(response => {
-                this.ticket = response.data;
-            })
-            .catch(function (err) {
-                if(err)
-                    console.log(err);
-            })
-        
-        this.calculatePrice(this.ticket);
-        
-        axios.get("http://localhost:5000/movie/" + this.ticket.moviename)
-            .then(response => {
-                this.movieImg = response.data.image;
-            })
-            .catch(function (err) {
-                if(err)
-                    console.log(err);
-            })
-            
+        this.ticket = getTicket(this.ticketId); 
+        this.calculatePrice(this.ticket);    
+        this.movieImg = getMovie(this.ticket.moviename).image;       
     }
 
     calculatePrice(ticket)
@@ -40,7 +25,7 @@ class BookingSummary extends Component{
         const gold = "DEFGHIJKL"
         const seats = ticket.seats;
         this.noOfTickets = seats.length;
-        this.convenienceFee = noOfTickets * 30;
+        this.convenienceFee = this.noOfTickets * 30;
 
         seats.map(seat => {
             var c = seat.split('');
@@ -50,8 +35,7 @@ class BookingSummary extends Component{
                 this.subTotal = this.subTotal + 100;
             else
                 this.subTotal += 50;
-        })
-        
+        }) 
         this.totalPrice = this.subTotal + this.convenienceFee;
     }
    
@@ -61,7 +45,7 @@ class BookingSummary extends Component{
         return (
             <div className="summary-container">
                 <div className="moviePoster">
-                    <img src={img} alt="" />
+                    <img src={this.ticket.img} alt="" />
                     <div className="moviePoster-sub">
                         <div className="movpos-sub">
                             <h3>{this.ticket.moviename},({this.ticket.print})</h3>

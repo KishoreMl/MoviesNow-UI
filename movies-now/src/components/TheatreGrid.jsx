@@ -10,7 +10,7 @@ class TheatreGrid extends Component
         axios.get("http://localhost:5000/theatre")
             .then(response => {
                 if (response.data.length > 0) {
-                    theatres = response.data.map(theatre => theatre);
+                    this.theatres = response.data.map(theatre => theatre);
                 }})
             }
 

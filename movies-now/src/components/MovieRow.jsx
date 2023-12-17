@@ -1,20 +1,14 @@
 import React, { Component } from "react";
-import axios from "axios";
 import MovieBox from "./MovieBox";
 import { Link } from 'react-router-dom';
+import { getAllMovies } from "../sdk/moviesnow";
 
 class MovieRow extends Component
 {
     movies = [];
 
     componentDidMount() {
-        axios.get("http://localhost:5000/movie")
-            .then(response => {
-                if (response.data.length > 0)
-                {
-                    this.movies = response.data.map(movie => movie);
-                }
-            })
+        this.movies = getAllMovies().map(movie => movie);
     }
 
     render() { 
