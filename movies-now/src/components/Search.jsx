@@ -12,30 +12,16 @@ class Search extends Component
             moviename:" ",
         }
     }
-    onChangemovie(e)
-    {
+    
+    onChangemovie(e){
         this.setState({ moviename: e.target.value });
     }
-    onSubmit(e)
-    {
-    
+
+    onSubmit(e){
         e.preventDefault();
-        axios.get("http://localhost:5000/movie/"+this.state.moviename)
-            .then(response => {
-                console.log("Movie data: "+response.data);   
-                if (response.data.length > 0)
-                { 
-                    window.location = '/movie/' + response.data.moviename;
-                }
-                else
-                {
-                    window.location = '/movienotfound';
-                }  
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
+        console.log(e);
     }
+
     render() {
         return (
             <div className="search">

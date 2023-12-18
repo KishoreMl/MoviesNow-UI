@@ -1,60 +1,37 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { getMovie, createTicket } from '../sdk/moviesnow';
+
 class TheatreRow extends Component{
 
-    constructor(props)
-    {
-        super(props);
-        var date = new Date();
-        this.state = {
+    date = new Date();
+    ticket = {
+            ticketId: "MNT"+10+Math.floor(Math.random()*999),
             theatrename: props.Theatre.theatrename,
-            movie: props.movie,
-            ticket: {
-                ticketId: "MNT"+10+Math.floor(Math.random()*999),
-                moviename: props.movie,
-                theatrename: props.Theatre.theatrename,
-                location: props.Theatre.location,
-                print: "",
-                language:"",
-                time: "",
-                date: props.date+","+date.getFullYear(),  
-                seats: [],
-                totaltickets: 0,
-                concessionfee: 0,
-                subtotal:0,
-                total:0,
-                booked:false,
-            }
-        };
+            moviename: props.movie,
+            location: props.Theatre.location,
+            date: props.date + "," + date.getFullYear(), 
+            booked:false,
     }
+
     componentDidMount()
     {
-        axios.get("http://localhost:5000/movie/" + this.props.movie)
-            .then(response => {
-                this.setState(prevState => ({
-                    ticket: {
-                        ...prevState.ticket,
-                        print: response.data.print,
-                        language:response.data.language,
-                    }
-                }))
-            })
-            .catch(function (err) {
-                    console.log(err);
-                })
+        let response = getMovie(this.props.movieId);
+        this.ticket = {
+            ...this.ticket,
+            print: response.print,
+            language: response.language
+        }    
         setTimeout(() => {
-            axios.post("http://localhost:5000/ticket/add", this.state.ticket);
-        }, 1000);
-        
+            createTicket(this.ticket);
+        }, 1000);    
     }
-    render() {
-       
+    render() {  
         return (
             <div className="theatreRow">
                 <h4>{this.props.Theatre.theatrename},{this.props.Theatre.location}</h4>
                 {this.props.Theatre.timeslots.map(time =>
-                    <Link to={'/theatrehall/'+this.state.ticket.ticketId+'/'+time}>
+                    <Link to={'/theatrehall/'+this.ticket.ticketId+'/'+time}>
                         <button name="theatre" key={time} >{time}</button>
                     </Link>
                 )}           

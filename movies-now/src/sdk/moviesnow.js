@@ -1,11 +1,12 @@
 
-export function getAllMovies()
-{
+const LOCAL_URL = "http://localhost:5000";
+const BASE_URL = LOCAL_URL;
+
+export async function getAllMovies() {
     let data;
-    axios.get("http://localhost:5000/movie")
+    axios.get(BASE_URL+"/movie")
         .then(response => {
-            if (response.data.length > 0)
-            {
+            if (response.data.length > 0){
                 data = response.data;
             }
         })
@@ -16,9 +17,9 @@ export function getAllMovies()
     return data;
 }
 
-export function getMovie(movieId) {
+export async function getMovie(movieId) {
     let data;
-    axios.get("http://localhost:5000/movie/" + movieId)
+    axios.get(BASE_URL+"/movie/"+movieId)
         .then(response => {
             data = response.data.description;
         })
@@ -28,13 +29,32 @@ export function getMovie(movieId) {
     return data;
 }
 
-export function getAllTheatres() {
-    
+export async function getTheatre(theatreId) {
+    let data;
+    axios.get(BASE_URL+"/theatre/"+theatreId)
+        .then(response => {
+            data = response.data.description;
+        })
+        .catch(function (err) {
+            console.log(err);
+        })
+    return data;
 }
 
-export function getCast(movie) {
+export async function getAllTheatres() {
+    let data
+    axios.get("http://localhost:5000/theatre")
+        .then(response => {
+            if (response.data.length > 0) {
+               data = response.data.map(theatre => theatre);
+            }})
+        
+    return data;
+}
+
+export async function getCast(movieId) {
     let data;
-     axios.get("http://localhost:5000/cast/" + movie)
+     axios.get(BASE_URL+"/cast/"+movieId)
             .then(response => {
                 data = response.data.cast;
             })
@@ -44,9 +64,9 @@ export function getCast(movie) {
     return data;
 }
 
-export function getCrew(movie) {
+export async function getCrew(movieId) {
     let data;
-     axios.get("http://localhost:5000/crew/" + movie)
+     axios.get(BASE_URL+"/crew/"+movieId)
         .then(response => {
             data = response.data;
         })
@@ -55,10 +75,30 @@ export function getCrew(movie) {
         })
     return data;
 }
- 
-export function getTicket() {
+
+export async function getSeats() {
     let data;
-     axios.get("http://localhost:5000/ticket/" + this.ticketId)
+    axios.get("http://localhost:5000/seat/" + this.ticket.theatrename)
+        .then(response => {
+            data = response.data.seats;
+        })
+        .catch(function (err){
+            console.log(err);
+        })
+    return data;
+}
+
+export async function updateSeats(theatreId,seats) {
+       axios.post("http://localhost:5000/seat/update/"+ theatreId, seats);
+}
+
+export async function createTicket(ticket) {
+     axios.post("http://localhost:5000/ticket/add", ticket);
+}
+ 
+export async function getTicket(ticketId) {
+    let data;
+     axios.get(BASE_URL+"/ticket/"+ticketId)
         .then(response => {
             data = response.data;
         })
@@ -69,11 +109,11 @@ export function getTicket() {
     return data;
 }
 
-export function updateTicket() {
-
+export async function updateTicket(ticketId,ticket) {
+    axios.post("http://localhost:5000/ticket/update/" + ticketId, ticket);
 }
 
-export function deleteTicket() {
+export async function deleteTicket() {
 
 }
 

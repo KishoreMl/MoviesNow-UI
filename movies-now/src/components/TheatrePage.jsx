@@ -15,7 +15,6 @@ class TheatrePage extends Component{
         this.state = {
             day:date.getDate(),
             month: this.assignMonth(date.getMonth() + 1),
-            movie:"",
             dates: [
                 {
                     day: date.getDate(),
@@ -48,23 +47,24 @@ class TheatrePage extends Component{
         }
         
     }
-   
-    handleClick(date,day,month)
-    { 
-        var da = ["0", "0", "0", "0", "0"];
-        da[date] = "datechosen";
-        var selectdate = day + "," + month;
-        this.setState({ datess: da,selectedDate:selectdate });
-    }
-    getdate(i)
-    {
-        return this.state.datess[i];
-    }
+
     componentDidMount()
     {  
         var setdate = this.state.dates[0].day + "," + this.state.dates[0].month;
         this.setState({ selectedDate: setdate });
     }
+   
+    handleClick(date,day,month)
+    { 
+        var tempDates = ["0", "0", "0", "0", "0"];
+        tempDates[date] = "datechosen";
+        this.setState({ datess: tempDates, selectedDate: day + "," + month });
+    }
+
+    getdate(i){
+        return this.state.datess[i];
+    }
+
     render()
     {    
         return (
@@ -75,7 +75,7 @@ class TheatrePage extends Component{
                     getId={this.getdate}>
                 </DateBar>
                 <TheatreGrid
-                    movie={this.props.match.params.id}
+                    movieId={this.props.match.params.id}
                     date={this.state.selectedDate}>
                 </TheatreGrid>
                 <Footer/>
