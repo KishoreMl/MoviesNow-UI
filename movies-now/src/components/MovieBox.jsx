@@ -5,17 +5,17 @@ class MovieBox extends Component
     render() {
         return (
             <div className="movieBox">
-                <button  name="moviename">
+                <button name="moviename">
                     <div className="movie">
-                        <img src={process.env.PUBLIC_URL+this.props.Movie.image} alt=""/>
+                        <img src={process.env.PUBLIC_URL+this.props.movie.image} alt=""/>
                         <div className="submov">
                             <span><i className="fa fa-heart"></i>likes</span>
-                            <p>{this.props.Movie.likes}</p>
+                            <p>{this.props.movie.likes}</p>
                         </div>
                     </div>
                 </button>
-                <h4>{this.props.Movie.moviename}</h4>
-                <p>{this.props.Movie.genre}</p>
+                <h4>{this.props.movie.moviename}</h4>
+                <p>{this.props.movie.genre}</p>
             </div>
         );
     }
