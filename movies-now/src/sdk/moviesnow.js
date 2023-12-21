@@ -10,8 +10,7 @@ export async function getAllMovies() {
                 data = response.data;
             }
         })
-        .catch(function (err)
-        { if (err)
+        .catch(function (err) {
             console.log(err);
         })
     return data;
@@ -21,7 +20,7 @@ export async function getMovie(movieId) {
     let data;
     axios.get(BASE_URL+"/movie/"+movieId)
         .then(response => {
-            data = response.data.description;
+            data = response.data;
         })
         .catch(function (err) {
             console.log(err);
@@ -33,7 +32,7 @@ export async function getTheatre(theatreId) {
     let data;
     axios.get(BASE_URL+"/theatre/"+theatreId)
         .then(response => {
-            data = response.data.description;
+            data = response.data;
         })
         .catch(function (err) {
             console.log(err);
@@ -43,24 +42,28 @@ export async function getTheatre(theatreId) {
 
 export async function getAllTheatres() {
     let data
-    axios.get("http://localhost:5000/theatre")
+    axios.get(BASE_URL+"/theatre")
         .then(response => {
             if (response.data.length > 0) {
                data = response.data.map(theatre => theatre);
-            }})
+            }
+        })
+        .catch(function (err) {
+            console.log(err);
+        })
         
     return data;
 }
 
 export async function getCast(movieId) {
     let data;
-     axios.get(BASE_URL+"/cast/"+movieId)
-            .then(response => {
-                data = response.data.cast;
-            })
-            .catch(function (err) {
-                console.log(err);
-            })
+    axios.get(BASE_URL+"/cast/"+movieId)
+        .then(response => {
+            data = response.data.cast;
+        })
+        .catch(function (err) {
+            console.log(err);
+        })
     return data;
 }
 
@@ -78,7 +81,7 @@ export async function getCrew(movieId) {
 
 export async function getSeats() {
     let data;
-    axios.get("http://localhost:5000/seat/" + this.ticket.theatrename)
+    axios.get(BASE_URL+"/seat/" + this.ticket.theatrename)
         .then(response => {
             data = response.data.seats;
         })
@@ -89,11 +92,11 @@ export async function getSeats() {
 }
 
 export async function updateSeats(theatreId,seats) {
-       axios.post("http://localhost:5000/seat/update/"+ theatreId, seats);
+    axios.post(BASE_URL+"/seat/update/"+ theatreId, seats);
 }
 
 export async function createTicket(ticket) {
-     axios.post("http://localhost:5000/ticket/add", ticket);
+    axios.post(BASE_URL+"/ticket/add", ticket);
 }
  
 export async function getTicket(ticketId) {
@@ -103,14 +106,13 @@ export async function getTicket(ticketId) {
             data = response.data;
         })
         .catch(function (err) {
-            if(err)
-                console.log(err);
+            console.log(err);
         })
     return data;
 }
 
 export async function updateTicket(ticketId,ticket) {
-    axios.post("http://localhost:5000/ticket/update/" + ticketId, ticket);
+    axios.post(BASE_URL+"/ticket/update/" + ticketId, ticket);
 }
 
 export async function deleteTicket() {
