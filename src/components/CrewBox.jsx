@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class CrewBox extends Component{
-    render()
-    {
+function CrewBox(props)
+{
         return(
             <div className="castImg">
-                <img src={this.props.crew.image} alt=""/>
-                <b><p>{this.props.crew.name}</p></b>
-                <p >{ this.props.crew.role}</p>
+                <img src={props.crew.image} alt=""/>
+                <b><p>{props.crew.name}</p></b>
+                <p >{ props.crew.role}</p>
             </div>
         );
-    }
 }
 
 export default CrewBox;

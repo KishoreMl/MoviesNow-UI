@@ -1,24 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-class MovieBar extends Component
+function MovieBar(props)
 {
-    render() {
-        return (
-            <div className="movieBar">
-                <h2>{this.props.ticket.movie}</h2>
-                <span>{this.props.ticket.print}</span>
-                <span>{this.props.ticket.theatre}</span>
-                <span><i className="far fa-clock"></i>{this.props.ticket.time}</span>
+    return (
+        <div className="movieBar">
+            <h2>{props.ticket.movie}</h2>
+            <span>{props.ticket.print}</span>
+            <span>{props.ticket.theatre}</span>
+            <span><i className="far fa-clock"></i>{props.ticket.time}</span>
 
-                <Link to={"/bookingsummary/"+this.props.ticketId}>
-                    <button onClick={this.props.onBook} className="book" type="submit" form="book">
-                        Book Tickets
-                    </button>
-                </Link>
+            <Link to={"/bookingsummary/"+props.ticketId}>
+                <button onClick={props.onBook} className="book" type="submit" form="book">
+                    Book Tickets
+                </button>
+            </Link>
 
-            </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default MovieBar;
+    

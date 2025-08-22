@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Legend extends Component {
+function Legend(props) {
     
-    render() {
-        return (
+    return (
             <div className="legend">
-                Sold<button id="sold">{this.props.sold}</button>
-                Available<button>{this.props.available}</button>
-                Selected<button id="selected">{this.props.selected}</button>
+                Sold<button id="sold">{props.sold}</button>
+                Available<button>{props.available}</button>
+                Selected<button id="selected">{props.selected}</button>
             </div>
         );
-    }
 }
 
 export default Legend;

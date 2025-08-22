@@ -1,84 +1,57 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-class Payment extends Component {
-    constructor(props)
-    {
-        super(props);
-        this.onSubmit = this.onSubmit.bind(this);
-        this.onChangeYear = this.onChangeYear.bind(this);
-        this.onChangeName = this.onChangeName.bind(this);
-        this.onChangeMonth = this.onChangeMonth.bind(this);
-        this.onChangeCCV = this.onChangeCCV.bind(this);
-        this.onChangeCardNo = this.onChangeCardNo.bind(this);
+function Payment(props) {
 
-        this.state = {
-            name: "",
-            cardNo: "",
-            month: "",
-            year: "",
-            ccv: "",    
-        }
-
-    }
-    onChangeCardNo(e)
-    {
-        this.setState({ cardNo: e.target.value })
-    }
-    onChangeName(e)
-    {
-        this.setState({ name: e.target.value })
-    }
-    onChangeMonth(e)
-    {
-        this.setState({ month: e.target.value })
-    }
-    onChangeYear(e)
-    {
-        this.setState({ year: e.target.value })
-    }
-    onChangeCCV(e)
-    {
-        this.setState({ ccv: e.target.value })
-    }
-    onSubmit(e)
+    const [name, setName] = useState("");
+    const [cardNo, setCardNo] = useState("");
+    const [month, setMonth] = useState("");
+    const [year, setYear] = useState("");
+    const [ccv, setCcv] = useState("");
+    
+    function onChangeCardNo(e){setCardNo(e.target.value)}
+    function onChangeName(e){setName(e.target.value)}
+    function onChangeMonth(e){setMonth(e.target.value)}
+    function onChangeYear(e){setYear(e.target.value)}
+    function onChangeCCV(e){setCcv(e.target.value)}
+    function onSubmit(e)
     {
         e.preventDefault();
-        window.location = '/paymentotp/' + this.props.ticketId;
+        window.location = '/paymentotp/' + props.ticketId;
     }
-    render() {
-        return (
+
+    return (
             <div className="payment">
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={onSubmit}>
             
                     <h2>Card Details</h2>
                     <input type="text"
-                        onChange={this.onChangeCardNo}
-                        value={this.state.cardNo}
+                        onChange={onChangeCardNo}
+                        value={cardNo}
                         placeholder="Card Number" />
                     <br />
 
                     <input type="text"
-                        onChange={this.onChangeName}
-                        value={this.state.name}
+                        onChange={onChangeName}
+                        value={name}
                         placeholder="Name on the Card" />
                     <br />
 
                     <input type="text"
                         id="small"
-                        onChange={this.onChangeMonth}
-                        value={this.state.month}
+                        onChange={onChangeMonth}
+                        value={month}
                         placeholder="MM" />
                     
                     <input type="text"
                         id="small"
-                        onChange={this.onChangeYear}
-                        value={this.state.year}
+                        onChange={onChangeYear}
+                        value={year}
                         placeholder="YY" />
                     <br />
 
                     <input type="password"
-                        onChange={this.onChangeCCV}
-                        value={this.state.ccv}
+                        onChange={onChangeCCV}
+                        value={ccv}
                         placeholder="CCV" />
                     <br />
     	            <button type="submit" value="submit">Make Payment</button>
@@ -87,6 +60,6 @@ class Payment extends Component {
         
             </div>
         );
-    }
 }
+
 export default Payment;

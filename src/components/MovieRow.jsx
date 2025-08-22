@@ -1,27 +1,27 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import MovieBox from "./MovieBox";
 import { Link } from 'react-router-dom';
 import { getAllMovies } from "../sdk/moviesnow";
 
-class MovieRow extends Component
+function MovieRow()
 {
-    movies = [];
+    const [movies, setMovies] = useState([]);
 
-    componentDidMount() {
-        this.movies = getAllMovies().map(movie => movie);
-    }
+    useEffect(() => {
+        let moviesData = getAllMovies().map(movie => movie);
+        setMovies(moviesData);
+    }, []); 
 
-    render() { 
         return (
             <div className="movRow">
-                {this.state.movies.map(movie => 
+                {movies.map(movie => 
                     <Link to={"/movie/" + movie.moviename}>
                         <MovieBox key={movie.moviename} Movie={movie} />
                     </Link>  
                 )}     
-            </div>
+            </div>  
         );
-    }
+        
 }
 
 export default MovieRow;

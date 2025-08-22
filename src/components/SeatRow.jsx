@@ -1,20 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Seat from './Seat';
-class SeatRow extends Component
-{
-    
-    render() {
+
+function SeatRow(props) {
         return (
             <div className="seatrow" >
-                {this.props.seats.map(id =>
-                    <Seat onClick={() => this.props.onSelectSeat(this.props.rowid,this.props.rowno,id)}
+                {props.seats.map(id =>
+                    <Seat onClick={() => props.onSelectSeat(props.rowid,props.rowno,id)}
                         sid={id}
-                        className={this.props.onGetClass(this.props.rowno, id)}
+                        className={props.onGetClass(props.rowno, id)}
                         key={id}>
                     </Seat>
                     )}
             </div>
         );
-    }
 }
+
 export default SeatRow;

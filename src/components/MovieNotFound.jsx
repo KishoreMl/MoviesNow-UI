@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import reel from '../Images/reel.jpg';
 
-class MovieNotFound extends Component{
-
-    render()
-    {
+function MovieNotFound()
+{
         return (
             <div className="mntf">
                 <h1>Movie not found</h1>
@@ -13,8 +11,7 @@ class MovieNotFound extends Component{
                 </center> 
             </div>
         );
-    }
-
 }
+
 
 export default MovieNotFound;

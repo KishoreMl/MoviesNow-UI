@@ -1,24 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class MovieBox extends Component
+function MovieBox(props)
 {   
-    render() {
-        return (
+    return (
             <div className="movieBox">
                 <button name="moviename">
                     <div className="movie">
-                        <img src={process.env.PUBLIC_URL+this.props.movie.image} alt=""/>
+                        <img src={process.env.PUBLIC_URL+props.movie.image} alt=""/>
                         <div className="submov">
                             <span><i className="fa fa-heart"></i>likes</span>
-                            <p>{this.props.movie.likes}</p>
+                            <p>{props.movie.likes}</p>
                         </div>
                     </div>
                 </button>
-                <h4>{this.props.movie.moviename}</h4>
-                <p>{this.props.movie.genre}</p>
+                    <h4>{props.movie.moviename}</h4>
+                <p>{props.movie.genre}</p>
             </div>
         );
     }
-}
 
 export default MovieBox;

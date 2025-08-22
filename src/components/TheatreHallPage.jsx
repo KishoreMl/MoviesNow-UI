@@ -1,51 +1,49 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import MovieBar from './MovieBar';
 import TheatreHall from "./TheatreHall";
 import { getTicket,updateTicket } from "../sdk/moviesnow";
 
-class TheatreHallPage extends Component{
+function TheatreHallPage(props) {
     
-    ticket = {
-        time: this.props.match.params.time,
-        ticketId:this.props.match.params.ticketId,
-    };
+    const [ticket, setTicket] = useState({
+        time: props.match.params.time,
+        ticketId: props.match.params.ticketId,
+    });
     
-    constructor(props)
-    {
-        super(props);
-        this.state = {
-            selectedSeats: [],
-        }
+    const [selectedSeats, setSelectedSeats] = useState([]);
+
+    useEffect(() => {
+        const ticket = getTicket(props.match.params.ticketId);
+        setTicket({ ...ticket, ticket });
+    }, []);
+        
+
+    useEffect(() => {
+        const ticket = getTicket(props.match.params.ticketId);
+        setTicket({ ...ticket, ticket });
+    }, []);
+
+    function onSelectSeat(seats) {
+        setSelectedSeats(seats);
     }
 
-    componentDidMount() {
-        const ticket =  getTicket(this.props.match.params.ticketId);
-        this.ticket = { ...this.ticket, ticket };       
+    function onBookTicket() {
+        updateTicket(ticket.ticketId, ticket);
     }
 
-    onSelectSeat(seats){
-        this.setState({ selectedSeats: seats });
-    }
-    
-    onBookTicket(){
-        updateTicket(this.ticket.ticketId, this.ticket);
-    }
-
-    render()
-    {
-        return (
-            <div>
-                <MovieBar 
-                    ticket={this.ticket}
-                    onBook={this.onBookTicket}
-                />
-                <TheatreHall
-                    theatrename={this.ticket.theatrename}
-                    onSelectedSeats={this.onSelectSeat}
-                />
-            </div>
-        );
-    }
+    return (
+        <div>
+            <MovieBar 
+                ticket={ticket}
+                onBook={onBookTicket}
+            />
+            <TheatreHall 
+                theatrename={ticket.theatrename}
+                onSelectedSeats={onSelectSeat}
+            />
+        </div>
+    );
 }
 
 export default TheatreHallPage;
+    

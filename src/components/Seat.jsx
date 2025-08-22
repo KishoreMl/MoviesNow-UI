@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Seat extends Component {
+function Seat(props) {
     
-    render() {
-        return (
-            <button id={this.props.className}
-                onClick={() => this.props.onClick()} >
-                {this.props.sid+1}
+    return (
+            <button id={props.className}
+                onClick={() => props.onClick()} >
+                {props.sid+1}
             </button>
         );
     }
-}
 
 export default Seat;

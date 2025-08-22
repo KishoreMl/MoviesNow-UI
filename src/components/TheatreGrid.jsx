@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import TheatreRow from './TheatreRow';
 import { getAllTheatres } from '../sdk/moviesnow';
 
-class TheatreGrid extends Component
+function TheatreGrid(props)
 {
-    theatres = []
+    const [theatres, setTheatres] = useState([]);
    
-    componentDidMount() {
-        this.theatres = getAllTheatres();
-    }
+    useEffect(() => {
+        setTheatres(getAllTheatres());
+    }, []);
 
-    render() {
-        return (
-            <div className="theatreGrid">
-                {this.theatres.map(theatre =>
+    return (
+      
+            <div className="theatreGrid">   
+                {theatres.map(theatre =>
                     <TheatreRow
                         Theatre={theatre}
                         date={this.props.date}
@@ -23,7 +23,6 @@ class TheatreGrid extends Component
                 )}  
             </div>
         )
-    }
 }
 
 export default TheatreGrid;

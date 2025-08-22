@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Seats from './Seats';
 
-class TheatreHall extends Component {
+function TheatreHall(props) {
 
-    render() {
-        return (
+    return (
             <Seats
-                onseatselect={this.props.onSelectedSeats}  
-                theatrename={this.props.theatrename}>
+                onseatselect={props.onSelectedSeats}  
+                theatrename={props.theatrename}>
             </Seats>
         );
-    }
 }
 
 export default TheatreHall;

@@ -1,41 +1,45 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import CastBox from './CastBox';
 import CrewBox from './CrewBox';
 import { getCast, getCrew,getMovie } from '../sdk/moviesnow';
 
-class MovieDetails extends Component
+function MovieDetails(props)
 {
-    description = '';
-    casts = [];
-    crew = [];
 
-    componentDidMount() {     
-        this.description = getMovie(this.props.movie).description;    
-        this.casts = getCast(this.props.movie);
-        this.crew = getCrew(this.props.movie);
-    }
+    const [descriptionData, setDescriptionData] = useState('');
+    const [castsData, setCastsData] = useState([]);
+    const [crewData, setCrewData] = useState([]);
 
-    render() {
-        return (
+    useEffect(() => {     
+        let descriptionData = getMovie(props.movie).description;
+        let castsData = getCast(props.movie);
+        let crewData = getCrew(props.movie);
+
+        setDescriptionData(descriptionData);
+        setCastsData(castsData);
+        setCrewData(crewData);
+    }, [props.movie]);
+
+    return (
             <div className="movie-details">
                 <div className="about">
                     <h2>Plot</h2>
-                    <p>{this.description}</p>
+                    <p>{descriptionData}</p>
                 </div>
                 <div className="castrow">
                 <h2>Cast</h2>
-                    {this.casts.map((cast) => 
+                    {castsData.map((cast) => 
                         <CastBox cast={cast} key={cast.name}/>
                     )}
                 </div>
                 <div className="castrow">
                 <h2>Crew</h2>
-                    {this.crew.map(crew => 
+                    {crewData.map(crew => 
                         <CrewBox crew={crew} key={crew.name}/>
                     )}
                 </div>
             </div>
         );
-    }
+    
 }
 export default MovieDetails;

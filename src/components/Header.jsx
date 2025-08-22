@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Search from './Search';
 import logo from '../Images/logo.png';
 function Header()
@@ -8,7 +8,7 @@ function Header()
             <img src={logo} alt=""/>
             <h1>MoviesNow</h1>
             <Search />
-        </div>
+        </div>  
     );
 }
 

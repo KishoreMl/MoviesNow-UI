@@ -1,44 +1,41 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import Footer from './Footer';
 import MovieBox from "./MovieBox";
 import { getAllMovies } from '../sdk/moviesnow';
 
-class Home extends Component{
+function Home() {
 
-    newMovies = [];
-    upComingMovies = [];
+    const [newMovies, setNewMovies] = useState([]);
+    const [upComingMovies, setUpComingMovies] = useState([]);
 
-    componentDidMount() {
+    useEffect(() => {
         const movies = getAllMovies();
-        this.newMovies = movies.filter((movie) => movie.bookingsOpen === true)
-        this.upComingMovies = movies.filter((movie) => movie.bookingsOpen === false);
-    }
+        setNewMovies(movies.filter((movie) => movie.bookingsOpen === true));
+        setUpComingMovies(movies.filter((movie) => movie.bookingsOpen === false));
+    }, []); 
 
-    onMovieSelect(movie)
+    function onMovieSelect(movie)
     {
-
+        console.log(movie);
     }
 
-    render()
-    { 
-        return (
+    return (
             <div>
                 <h1>New Releases</h1>
                 <div className="movies">
-                    {this.newMovies.map((movie) => {
-                        <MovieBox movie={movie} />
+                    {newMovies.map((movie) => {
+                        <MovieBox movie={movie} onMovieSelect={onMovieSelect} />
                      })}
                 </div>
                 <h1>Upcoming Movies</h1>
                 <div className="movies">
-                    {this.upComingMovies.map((movie) => {
-                        <MovieBox  movie={movie} />
+                    {upComingMovies.map((movie) => {
+                        <MovieBox  movie={movie} onMovieSelect={onMovieSelect} />
                     })}
                 </div>
                 <Footer/>
             </div>
         );
     }
-}
 
 export default Home;

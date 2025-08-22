@@ -1,42 +1,32 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
-class Search extends Component
-{
-    constructor(props)
-    {
-        super(props);
-        this.onChangemovie = this.onChangemovie.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-        this.state = {
-            moviename:" ",
-        }
+function Search(props)
+{   
+
+    const [moviename, setMoviename] = useState("");
+
+    function onChangemovie(e){
+        setMoviename(e.target.value);
     }
-    
-    onChangemovie(e){
-        this.setState({ moviename: e.target.value });
+    function onSubmit(e){
+        e.preventDefault(); 
+        // search for movies by moviename to be implemented
     }
 
-    onSubmit(e){
-        e.preventDefault();
-        console.log(e);
-    }
-
-    render() {
-        return (
-            <div className="search">
-                <form onSubmit={this.onSubmit}>
-                    <input type="text"
-                        name="movie"
-                        placeholder="Search movies"
-                        onChange={this.onChangemovie}/>
-                    <button type="submit" value="submit">
-                        <i className="fa fa-search"></i>
-                    </button>
-                </form>
-            </div>
-        );
-    }
+    return (
+        <div className="search">
+            <form onSubmit={onSubmit}>
+                <input type="text"
+                    name="movie"
+                    placeholder="Search movies"
+                    onChange={onChangemovie}/>
+                <button type="submit" value="submit">
+                    <i className="fa fa-search"></i>
+                </button>
+            </form>
+        </div>
+    );
 }
 
 export default Search;
