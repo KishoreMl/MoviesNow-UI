@@ -1,13 +1,11 @@
 import React from 'react';
-import Search from './Search';
-import logo from '../Images/logo.png';
+import logo from '../../assests/images/logo.png';
+import './Header.css';
 function Header()
 {
     return (
         <div className="header">
             <img src={logo} alt=""/>
-            <h1>MoviesNow</h1>
-            <Search />
         </div>  
     );
 }

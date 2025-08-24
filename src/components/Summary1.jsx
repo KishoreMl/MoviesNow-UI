@@ -16,7 +16,6 @@ class Summary extends Component{
                 time:"",
                 date: "",  
                 seats: [],
-                totaltickets: 0,
                 concessionfee: 0,
                 subtotal: 0,
                 total:0,
@@ -40,7 +39,6 @@ class Summary extends Component{
                         date: response.data.date,
                         time:response.data.time,
                         seats:response.data.seats,
-                        totaltickets: response.data.totaltickets,
                         concessionfee:response.data.concessionfee,
                         subtotal: response.data.subtotal,
                         total: response.data.total,
@@ -66,15 +64,13 @@ class Summary extends Component{
                         <span>{seat},</span>
                     )} 
                 </p>
-                <p> <b>Ticket(s): </b>{this.state.ticket.totaltickets}</p>
+                <p> <b>Ticket(s): </b>{this.state.ticket.seats.length}</p>
                 <p><b>Convenience fees: </b> <span>{this.state.ticket.concessionfee}</span> </p> 
                 <hr/>
                 <br/>
                 <p><b>Amount Payable </b> <span>Rs.{this.state.ticket.total}</span> </p> 
                 <hr/>
                 <p>By proceeding, I express my consent to complete this transaction</p>
-
-              
             </div>
         );
     }

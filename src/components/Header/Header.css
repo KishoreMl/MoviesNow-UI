@@ -1,0 +1,26 @@
+.header {
+    height: 4.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 5px 3px rgb(92, 91, 91);
+    z-index: 1;
+    margin: 0;
+}
+
+.header h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 2rem;
+    margin-bottom: 2em;
+    font-size: 1.5em;
+    color: black;
+}
+
+.header img {
+    margin-right: auto;
+    margin-left: 2rem;
+    width: 11rem;
+    height: 3rem;
+}

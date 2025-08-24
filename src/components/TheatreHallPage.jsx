@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MovieBar from './MovieBar';
-import TheatreHall from "./TheatreHall";
+import Seats from './Seats';
 import { getTicket,updateTicket } from "../sdk/moviesnow";
 
 function TheatreHallPage(props) {
@@ -37,10 +37,10 @@ function TheatreHallPage(props) {
                 ticket={ticket}
                 onBook={onBookTicket}
             />
-            <TheatreHall 
-                theatrename={ticket.theatrename}
-                onSelectedSeats={onSelectSeat}
-            />
+            <Seats
+                onseatselect={props.onSelectedSeats}  
+                theatrename={props.theatrename}>
+            </Seats>
         </div>
     );
 }

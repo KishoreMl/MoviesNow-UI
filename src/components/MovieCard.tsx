@@ -1,22 +1,23 @@
 import React from 'react';
+import { Movie } from '../model';
 
-function MovieBox(props)
-{   
+const MovieCard: React.FC<Movie> = ({id, name, genre,  likes, imageUrl}) => {
+    
     return (
             <div className="movieBox">
                 <button name="moviename">
                     <div className="movie">
-                        <img src={process.env.PUBLIC_URL+props.movie.image} alt=""/>
+                        <img src={imageUrl} alt=""/>
                         <div className="submov">
                             <span><i className="fa fa-heart"></i>likes</span>
-                            <p>{props.movie.likes}</p>
+                            <p>{likes}</p>
                         </div>
                     </div>
                 </button>
-                    <h4>{props.movie.moviename}</h4>
-                <p>{props.movie.genre}</p>
+                <h4>{name}</h4>
+                <p>{genre}</p>
             </div>
         );
     }
 
-export default MovieBox;
+export default MovieCard;
