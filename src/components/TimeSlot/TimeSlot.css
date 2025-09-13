@@ -1,0 +1,37 @@
+.time-slot {
+    display: flex;
+    flex-direction: column;
+    border-style:solid;
+    border-width: 1px 1px 1px 4px;
+    border-color: #4caf50;
+    color: rgb(102, 102, 102);
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 2px;
+    height: 40px;
+    width: 107px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.2px;
+}
+
+.slot-description{
+    font-size: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.available {
+    background-color: #4caf50;
+}
+
+.filling-fast {
+    background-color: #ff9800;
+}
+
+.not-available {
+    background-color: #939292;
+}

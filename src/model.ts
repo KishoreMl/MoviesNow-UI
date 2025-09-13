@@ -35,6 +35,19 @@ export interface Theatre{
     phone: string;
 }
 
+export interface TheatreShow{
+    id: string;
+    name: string;
+    location: string;
+    slots: TheatreTimeSlot[];
+    cancellable: boolean;
+}
+
+export interface TheatreTimeSlot{
+    time: string;
+    screenType: string;
+}
+
 
 export interface Screen{
     theatreId: string;
@@ -53,7 +66,7 @@ export interface Seat{
     number: number;
 }
 
-export interface Tikcet{
+export interface Ticket{
     ticketId: string;
     moviename: string;
     theatrename: string;

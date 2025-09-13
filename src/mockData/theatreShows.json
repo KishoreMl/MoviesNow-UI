@@ -1,0 +1,140 @@
+{
+    "shows": [
+        {
+            "id": "1",
+            "name": "Broadway Cinemas",
+            "location": "Coimbatore",
+            "slots":[
+                {
+                    "time": "09:00 AM",
+                    "screenType": "4K DOLBY ATMOS",
+                    "availability": "Available"
+                },
+                {
+                    "time": "09:40 AM",
+                    "screenType": "4K DOLBY ATMOS",
+                    "availability": "Available"
+                },
+                {
+                    "time": "12:00 PM",
+                    "screenType": "4K DOLBY ATMOS",
+                    "availability": "Available"
+                },
+                {
+                    "time": "12:20 PM",
+                    "screenType": "GOLD",
+                    "availability": "Available"
+                },
+                {
+                    "time": "1:00 PM",
+                    "screenType": "EPIQ",
+                    "availability": "Filling fast"
+                },
+                {
+                    "time": "3:25 PM",
+                    "screenType": "4K DOLBY ATMOS",
+                    "availability": "Available"
+                },
+                {
+                    "time": "3:45 PM",
+                    "screenType": "4K DOLBY ATMOS",
+                    "availability": "Available"
+                },
+                {
+                    "time": "7:00 PM",
+                    "screenType": "4K DOLBY ATMOS",
+                    "availability": "Available"
+                }
+            ],
+            "cancellable": true
+        },
+        {
+                "id": "2",
+                "name": "Murugan Cinemas AC",
+                "location": "Thudiyalur",
+                "slots":[
+                    {
+                        "time": "10:30 AM",
+                        "screenType": "4K DolbyAtmos",
+                        "availability": "Available"
+                    },
+                    {
+                        "time": "2:30 PM",
+                        "screenType": "4K DolbyAtmos",
+                        "availability": "Available"
+                    },
+                    {
+                        "time": "06:30 PM",
+                        "screenType": "4K DolbyAtmos",
+                        "availability": "Available"
+                    },
+                    {
+                        "time": "10:00 PM",
+                        "screenType": "4K DolbyAtmos",
+                        "availability": "Available"
+                    }
+                ],
+                "cancellable": false
+        },
+        {
+            "id":3,
+            "name":"Cosmo Cinemas",
+            "location":"Peelamedu",
+            "slots":[
+                {
+                    "time":"11:00 AM",
+                    "screenType":"DOLBY ATMOS",
+                    "availability":"Available"
+                },
+                {
+                    "time":"02:15 PM",
+                    "screenType":"DOLBY ATMOS",
+                    "availability":"Available"
+                },
+                {
+                    "time":"06:15 PM",
+                    "screenType":"DOLBY ATMOS",
+                    "availability":"Available"
+                },
+                {
+                    "time":"10:15 PM",
+                    "screenType":"DOLBY ATMOS",
+                    "availability":"Available"
+                }
+
+            ]
+        },
+        {
+            "id":"4",
+            "name":"KG Cinemas",
+            "location":"Coimbatore",
+            "slots":[
+                {
+                    "time":"10:15 AM",
+                    "screenType":"DOLBY ATMOS",
+                    "availability":"Available"
+                },
+                {
+                    "time":"12:55 PM",
+                    "screenType":"DOLBY ATMOS",
+                    "availability":"Available"
+                },
+                {
+                    "time":"04:20 PM",
+                    "screenType":"DOLBY ATMOS",
+                    "availability":"Available"
+                },
+                {
+                    "time":"07:55 PM",
+                    "screenType":"DOLBY ATMOS",
+                    "availability":"Available"
+                },
+                {
+                    "time":"11:25 PM",
+                    "screenType":"DOLBY ATMOS",
+                    "availability":"Available"
+                }
+            ]
+        }
+    ]
+}

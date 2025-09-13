@@ -1,0 +1,38 @@
+{
+    "theatres": [
+        {
+            "id": "1",
+            "name": "PVR",
+            "location": "Bangalore",
+            "address": "123, Main Road, Bangalore",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "pincode": "560001",
+            "phone": "9876543210"
+        },
+        {
+            "id": "2",
+            "name": "INOX",
+            "location": "Mumbai",
+            "address": "123, Main Road, Mumbai",
+            "city": "Mumbai",
+            "state": "Maharashtra"
+        },
+        {
+            "id": "3",
+            "name": "Cinepolis",
+            "location": "Delhi",
+            "address": "123, Main Road, Delhi",
+            "city": "Delhi",
+            "state": "Delhi"
+        },
+        {
+            "id": "4",
+            "name": "PVR",
+            "location": "Bangalore",
+            "address": "123, Main Road, Bangalore",
+            "city": "Bangalore",
+            "state": "Karnataka"
+        }
+    ]
+}
