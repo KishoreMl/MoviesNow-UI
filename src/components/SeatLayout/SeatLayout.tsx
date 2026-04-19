@@ -3,7 +3,9 @@ import React from 'react';
 
 const SeatLayout: React.FC =() =>{
     return(
-        <div className='seat-layout'></div>
+        <div className='seat-layout'>
+            
+        </div>
     )
 }
 
